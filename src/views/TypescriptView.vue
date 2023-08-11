@@ -1,5 +1,5 @@
 <template>
-  <LangView :lang="lang" :src="src">
+  <LangLayout :lang="lang" :src="src">
     TypeScript is a free and open-source high-level programming language
     developed by Microsoft that adds static typing with optional type
     annotations to JavaScript. It is designed for the development of large
@@ -10,16 +10,16 @@
     execution (as with Node.js or Deno). Multiple options are available for
     transpilation. The default TypeScript Compiler can be used, or the Babel
     compiler can be invoked to convert TypeScript to JavaScript.
-  </LangView>
+  </LangLayout>
 </template>
 
 <script>
-import LangView from "@/components/LangView.vue";
+import LangLayout from "@/components/LangLayout.vue";
 
 export default {
   name: "TypescriptView",
   components: {
-    LangView,
+    LangLayout,
   },
   data() {
     return {

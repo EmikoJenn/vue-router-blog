@@ -5,12 +5,18 @@
     <div>
       <router-link :to="mainRoute.path">~ /> {{ mainRoute.name }}</router-link>
     </div>
-    <ul class="flex gap-2">
-      <li v-for="({ path, name }, i) in subRoutes" :key="i" class="flex">
-        <router-link :to="path">[ {{ name }} ]</router-link>
-        <div v-if="i < subRoutes.length - 1" class="px-2">-</div>
-      </li>
-    </ul>
+    <div class="flex flex-align-center">
+      <ul class="flex gap-2">
+        <li v-for="({ path, name }, i) in subRoutes" :key="i" class="flex">
+          <router-link :to="path">[ {{ name }} ]</router-link>
+          <div v-if="i < subRoutes.length - 1" class="px-2">-</div>
+        </li>
+      </ul>
+      <div>
+        <span class="px-4">/</span>
+        <router-link to="/todos">Todos</router-link>
+      </div>
+    </div>
   </nav>
 </template>
 

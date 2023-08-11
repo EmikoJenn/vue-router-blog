@@ -11,25 +11,33 @@ const routes = [
     path: "/c",
     name: "c-lang",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/CView.vue"),
+      import(/* webpackChunkName: "CView" */ "../views/CView.vue"),
   },
   {
     path: "/ts",
     name: "typescript",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/TSView.vue"),
+      import(
+        /* webpackChunkName: "TypescriptView" */ "../views/TypescriptView.vue"
+      ),
   },
   {
     path: "/py",
     name: "python",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/PYView.vue"),
+      import(/* webpackChunkName: "PythonView"" */ "../views/PythonView.vue"),
   },
   {
     path: "/rs",
     name: "rust",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/RSView.vue"),
+      import(/* webpackChunkName: "RustView" */ "../views/RustView.vue"),
+  },
+  {
+    path: "/todos",
+    name: "todos",
+    component: () =>
+      import(/* webpackChunkName: "TodosView" */ "../views/TodosView.vue"),
   },
 ];
 

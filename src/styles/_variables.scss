@@ -1,0 +1,151 @@
+$primary-color: #4ab3f8;
+$secondary-color: #962dcf;
+$tertiary-color: #53235e;
+$emphasis-color: #fc4cbc;
+$success-color-1: #cbffc0;
+$success-color-2: #cffeff;
+$success-color-3: #1c3837;
+
+.vh-100 {
+  height: 100vh;
+}
+.vw-100 {
+  width: 100vw;
+}
+.h-100 {
+  height: 100%;
+}
+.h-25 {
+  height: 25%;
+}
+.w-100 {
+  width: 100%;
+}
+.w-50 {
+  width: 50%;
+}
+.w-25 {
+  width: 25%;
+}
+.m-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.mt-8 {
+  margin-top: 4rem;
+}
+.mr-2 {
+  margin-right: 0.5rem;
+}
+.mr-4 {
+  margin-right: 1rem;
+}
+.text-primary {
+  color: $primary-color;
+}
+.text-emphasis {
+  color: $emphasis-color;
+}
+.text-white {
+  color: #fff;
+}
+.text-md {
+  font-size: 1rem;
+}
+.text-lg {
+  font-size: 1.5rem;
+}
+.text-xl {
+  font-size: 2rem;
+}
+.text-bold {
+  font-weight: bold;
+}
+.bg-primary {
+  background-color: $primary-color;
+}
+.bg-secondary {
+  background-color: $secondary-color;
+}
+.bg-tertiary {
+  background-color: $tertiary-color;
+}
+.p-2 {
+  padding: 0.5rem;
+}
+.p-4 {
+  padding: 1rem;
+}
+.p-6 {
+  padding: 1.5rem;
+}
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.flex {
+  display: flex;
+}
+.flex-column {
+  flex-direction: column;
+}
+.flex-align-center {
+  align-items: center;
+}
+.flex-justify-between {
+  justify-content: space-between;
+}
+.gap-2 {
+  gap: 0.5rem;
+}
+.gap-4 {
+  gap: 1rem;
+}
+
+#app {
+  margin: 0;
+  padding: 0;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: block;
+  font: sans-serif;
+  @extend .bg-tertiary;
+  @extend .text-primary;
+  @extend .vh-100;
+  @extend .vw-100;
+}
+nav {
+  font-size: 1.5rem;
+  @extend .text-bold;
+}
+h1 {
+  font-size: 3rem;
+  @extend .text-bold;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  display: inline-block;
+}
+li {
+  display: inline-block;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  &:hover {
+    @extend .text-emphasis;
+  }
+}

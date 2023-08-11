@@ -8,17 +8,13 @@
 
 <script>
 export default {
-  name: "TypescriptView",
+  name: "LangLayout",
   props: {
     lang: {
       type: String,
       required: true,
     },
     src: {
-      required: true,
-    },
-    content: {
-      type: String,
       required: true,
     },
   },

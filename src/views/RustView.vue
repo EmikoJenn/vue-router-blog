@@ -1,5 +1,5 @@
 <template>
-  <LangView :lang="lang" :src="src">
+  <LangLayout :lang="lang" :src="src">
     Rust is a multi-paradigm, general-purpose programming language that
     emphasizes performance, type safety, and concurrency. It enforces memory
     safety—ensuring that all references point to valid memory—without requiring
@@ -18,16 +18,16 @@
     development of the Linux kernel. Rust has been noted for its growth as a
     newer language and has been the subject of academic programming languages
     research.
-  </LangView>
+  </LangLayout>
 </template>
 
 <script>
-import LangView from "@/components/LangView.vue";
+import LangLayout from "@/components/LangLayout.vue";
 
 export default {
   name: "RustView",
   components: {
-    LangView,
+    LangLayout,
   },
   data() {
     return {

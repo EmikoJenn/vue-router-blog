@@ -1,5 +1,5 @@
 <template>
-  <LangView :lang="lang" :src="src" :content="content">
+  <LangLayout :lang="lang" :src="src" :content="content">
     Python is a high-level, general-purpose programming language. Its design
     philosophy emphasizes code readability with the use of significant
     indentation. Python is dynamically typed and garbage-collected. It supports
@@ -12,16 +12,16 @@
     2008, was a major revision not completely backward-compatible with earlier
     versions. Python 2.7.18, released in 2020, was the last release of Python 2.
     Python consistently ranks as one of the most popular programming languages.
-  </LangView>
+  </LangLayout>
 </template>
 
 <script>
-import LangView from "@/components/LangView.vue";
+import LangLayout from "@/components/LangLayout.vue";
 
 export default {
   name: "PythonView",
   components: {
-    LangView,
+    LangLayout,
   },
   data() {
     return {

@@ -1,5 +1,5 @@
 <template>
-  <LangView :lang="lang" :src="src">
+  <LangLayout :lang="lang" :src="src">
     C (pronounced /ˈsiː/ – like the letter c) is a general-purpose computer
     programming language. It was created in the 1970s by Dennis Ritchie, and
     remains very widely used and influential. By design, C's features cleanly
@@ -17,16 +17,16 @@
     the original language designer, served for many years as the de facto
     standard for the language. C has been standardized by ANSI since 1989 (ANSI
     C) and by the International Organization for Standardization (ISO).
-  </LangView>
+  </LangLayout>
 </template>
 
 <script>
-import LangView from "@/components/LangView.vue";
+import LangLayout from "@/components/LangLayout.vue";
 
 export default {
   name: "CView",
   components: {
-    LangView,
+    LangLayout,
   },
   data() {
     return {
