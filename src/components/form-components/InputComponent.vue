@@ -15,7 +15,7 @@ export default {
   },
   methods: {
     handleTodo() {
-      if (this.value === null || this.value === "") return;
+      if (!this.value) return;
       this.$emit("getTodo", this.value);
       this.value = null;
     },

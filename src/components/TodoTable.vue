@@ -9,7 +9,7 @@
       <label>
         {{ todoObj.todo }}
         <input type="checkbox" v-model="todoObj.done" />
-        <span></span>
+        <span />
       </label>
       <button class="p-2" @click.prevent="$emit('deleteTodo', todoObj.id)">
         Delete
