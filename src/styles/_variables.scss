@@ -6,6 +6,10 @@ $success-color-1: #cbffc0;
 $success-color-2: #cffeff;
 $success-color-3: #1c3837;
 
+* {
+  box-sizing: border-box;
+}
+
 .vh-100 {
   height: 100vh;
 }
@@ -87,6 +91,9 @@ $success-color-3: #1c3837;
   padding-left: 1rem;
   padding-right: 1rem;
 }
+.pl-4 {
+  padding-left: 1rem;
+}
 .flex {
   display: flex;
 }
@@ -98,6 +105,9 @@ $success-color-3: #1c3837;
 }
 .flex-justify-between {
   justify-content: space-between;
+}
+.flex-grow-1 {
+  flex-grow: 1;
 }
 .gap-2 {
   gap: 0.5rem;

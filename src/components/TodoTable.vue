@@ -1,44 +1,65 @@
 <template>
-  <ul class="table">
-    <li
-      v-for="(todoObj, i) in Todos"
-      :key="todoObj.id"
-      class="row"
-      :class="[isIndexOddOrPair(i), { done: todoObj.done }]"
-    >
-      <label>
-        {{ todoObj.todo }}
-        <input type="checkbox" v-model="todoObj.done" />
-        <span />
-      </label>
-      <button class="p-2" @click.prevent="$emit('deleteTodo', todoObj.id)">
-        Delete
-      </button>
-    </li>
-  </ul>
+  <div class="flex-grow-1">
+    <h2 v-if="title">{{ title }}</h2>
+    <ul class="table">
+      <li
+        v-for="(todoObj, i) in todosShown"
+        :key="todoObj.id"
+        class="row"
+        :class="[isIndexOddOrPair(i), { done: todoObj.done }]"
+      >
+        <v-checkbox
+          v-if="editable"
+          :title="todoObj.todo"
+          v-model:checked="todoObj.done"
+        />
+        <template v-else>
+          <span>{{ todoObj.todo }}</span>
+        </template>
+        <div v-if="editable">
+          <button class="p-2" @click.prevent="$emit('deleteTodo', todoObj.id)">
+            Delete
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
+import VCheckbox from "@/components/form-components/CheckboxComponent.vue";
+
 export default {
   name: "v-table",
+  components: {
+    VCheckbox,
+  },
   props: {
-    Todos: {
+    title: String,
+    todos: {
       type: Array,
       required: true,
+    },
+    show: {
+      type: String,
+      default: "all",
+    },
+    editable: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    todosShown() {
+      if (this.show === "new") return this.todos.filter((todo) => !todo.done);
+      if (this.show === "done") return this.todos.filter((todo) => todo.done);
+      return this.todos;
     },
   },
   methods: {
     isIndexOddOrPair(index) {
       if (index % 2 === 0) return "odd";
       else return "pair";
-    },
-  },
-  watch: {
-    Todos: {
-      handler() {
-        console.log(this.Todos);
-      },
-      deep: true,
     },
   },
 };
@@ -56,16 +77,13 @@ export default {
 
 .row {
   @extend .w-100;
+  @extend .pl-4;
   @extend .flex;
   @extend .flex-justify-between;
   @extend .flex-align-center;
   @extend .text-bold;
   border-radius: 0.5rem;
-}
-.row > div {
-  @extend .flex;
-  @extend .gap-4;
-  @extend .p-2;
+  min-height: 3rem;
 }
 
 .odd {
@@ -87,64 +105,6 @@ export default {
 
 .done button {
   color: inherit;
-}
-
-label {
-  @extend .text-bold;
-  @extend .text-lg;
-  position: relative;
-  padding-left: 2.5rem;
-  cursor: pointer;
-  font-size: 1.5rem;
-  user-select: none;
-
-  input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-
-    &:checked ~ span {
-      background-color: $emphasis-color;
-    }
-
-    &:checked ~ span:after {
-      display: block;
-      left: 0.5rem;
-      top: 0.3rem;
-      width: 0.5rem;
-      height: 1rem;
-      border: solid white;
-      border-width: 0 0.25rem 0.25rem 0;
-      transform: rotate(45deg);
-    }
-  }
-
-  span {
-    height: calc(100% - 0.2rem);
-    width: 1.8rem;
-    position: absolute;
-    top: 0.5rem;
-    left: -0.5rem;
-    border-radius: 0.5rem;
-    background-color: inherit;
-    border: 0.2rem solid $emphasis-color;
-
-    &:after {
-      content: "";
-      position: absolute;
-      display: none;
-    }
-  }
-
-  &:hover input ~ span {
-    background-color: rgba($emphasis-color, 0.6);
-
-    &:after {
-      display: block;
-    }
-  }
 }
 
 button {

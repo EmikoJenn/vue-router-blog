@@ -4,7 +4,12 @@
   </div>
   <form>
     <v-input @getTodo="saveTodo" />
-    <v-table :Todos="todos" @deleteTodo="removeTodo" />
+    <v-table :todos="todos" :editable="true" @deleteTodo="removeTodo" />
+
+    <div class="flex gap-4">
+      <v-table title="New" :todos="todos" show="new" />
+      <v-table title="Done" :todos="todos" show="done" />
+    </div>
   </form>
 </template>
 
